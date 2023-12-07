@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import 'package:widget/widget.dart';
-
-import '../../core/model/movie_model/movie_model.dart';
-import '../detail_page/detail_page.dart';
-import 'cubit/home_cubit.dart';
-import 'home_page_mixin.dart';
+import 'package:movie_search_and_detail/feature/detail_page/detail_page.dart';
+import 'package:movie_search_and_detail/feature/home_page/cubit/home_cubit.dart';
+import 'package:movie_search_and_detail/feature/home_page/home_page_mixin.dart';
+import 'package:movie_search_and_detail/utility/widget/custom_container.dart';
 
 ///HomePage class for home page
 class HomePage extends StatefulWidget {
   ///HomePage constructor
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -23,6 +22,7 @@ class _HomePageState extends State<HomePage> with HomePageMixin {
     return BlocProvider(
       create: (context) => homeViewModel,
       child: Scaffold(
+        // bottomNavigationBar: const BottomBar(),
         appBar: AppBar(
           actions: [
             IconButton(
@@ -50,10 +50,9 @@ class _HomePageState extends State<HomePage> with HomePageMixin {
                   ? TextField(
                       autofocus: true,
                       onSubmitted: (value) {
-                        print('============== $value');
                         if (value.isNotEmpty) {
                           homeViewModel
-                            ..fetchMovi(movieName: value)
+                            ..fetchMovie(movieName: value)
                             ..changeSearch();
                         }
                       },
@@ -81,7 +80,6 @@ class _HomePageState extends State<HomePage> with HomePageMixin {
                         itemCount: state.movieModel?.search?.length ?? 0,
                         itemBuilder: (context, index) {
                           final item = state.movieModel?.search?[index];
-                          print(item?.imdbID);
                           return CustomContainer(
                             items: item!,
                             onPressed: () => context.route.navigateToPage(
@@ -97,34 +95,6 @@ class _HomePageState extends State<HomePage> with HomePageMixin {
           },
         ),
       ),
-      
-    );
-  }
-}
-
-///MyContainer Customization and veriable.
-class CustomContainer extends StatelessWidget {
-  ///MyContainer constructor
-  const CustomContainer({
-    required this.items,
-    required this.onPressed,
-    super.key,
-  });
-
-  ///OnPress methot
-  final VoidCallback onPressed;
-
-  /// indexing items
-  final Search items;
-  @override
-  Widget build(BuildContext context) {
-    return MyContainer(
-      buttonIcon: Icons.arrow_forward_rounded,
-      onPressed: onPressed,
-      // width: 20,
-      imageUrl: items.poster,
-      title: items.title,
-      description: items.type,
     );
   }
 }

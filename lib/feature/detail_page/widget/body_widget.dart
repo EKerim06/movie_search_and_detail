@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/model/detail_model/movie_detail_model.dart';
+import 'package:movie_search_and_detail/core/model/detail_model/movie_detail_model.dart';
 
 ///Body widget.
 class BodyWidget extends StatelessWidget {
@@ -19,7 +19,7 @@ class BodyWidget extends StatelessWidget {
           fit: BoxFit.cover,
         ),
         ListTile(
-          title: Text(movieDetailModel.title!),
+          title: Text(movieDetailModel.title ?? ''),
           subtitle: Text(movieDetailModel.plot!),
         ),
         ListTile(

@@ -50,7 +50,7 @@ class MyContainer extends StatelessWidget {
   ///is null whereas
   final double? imageWidth;
 
-  ///Icons is icon
+  ///Icons is icon is defaul value [Icons.home]
   final IconData? buttonIcon;
 
   @override
@@ -123,7 +123,7 @@ class MyContainer extends StatelessWidget {
                       ),
                       IconButton(
                         onPressed: onPressed,
-                        icon: Icon(buttonIcon),
+                        icon: Icon(buttonIcon ?? Icons.home),
                       ),
                     ],
                   ),

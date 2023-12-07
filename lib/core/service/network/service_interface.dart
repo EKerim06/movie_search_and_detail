@@ -1,7 +1,6 @@
+import 'package:movie_search_and_detail/core/model/detail_model/movie_detail_model.dart';
+import 'package:movie_search_and_detail/core/model/movie_model/movie_model.dart';
 import 'package:vexana/vexana.dart';
-
-import '../../../core/model/detail_model/movie_detail_model.dart';
-import '../../../core/model/movie_model/movie_model.dart';
 
 /// ServiceInterface class for network operations abstract layer
 abstract class ServiceInterface {

@@ -1,8 +1,7 @@
+import 'package:movie_search_and_detail/constants/enum/enum_url.dart';
+import 'package:movie_search_and_detail/core/model/movie_model/movie_model.dart';
+import 'package:movie_search_and_detail/utility/static_classes/headers_keys.dart';
 import 'package:vexana/vexana.dart';
-
-import '../../../constants/enum/enum_headers_keys.dart';
-import '../../../constants/enum/enum_url.dart';
-import '../../model/movie_model/movie_model.dart';
 
 /// ProductNetwork class for network operations
 class ProductNetwork extends NetworkManager<MovieModel> {

@@ -10,7 +10,9 @@ void main() {
   });
 
   test('fetching movie list', () async {
-    final response = await networkManager.fetchMovieLists(movieName: 'Blacklist');
+    final response = await networkManager.fetchMovieLists(
+      movieName: 'Blacklist',
+    );
     expect(response, isNotNull);
   });
 

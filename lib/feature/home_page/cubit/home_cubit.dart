@@ -1,8 +1,8 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/model/movie_model/movie_model.dart';
-import '../../../core/service/network/service_interface.dart';
+import 'package:movie_search_and_detail/core/model/movie_model/movie_model.dart';
+import 'package:movie_search_and_detail/core/service/network/service_interface.dart';
 
 part 'home_state.dart';
 
@@ -11,20 +11,20 @@ class HomeCubit extends Cubit<HomeState> {
   /// HomeCubit constructor
 
   HomeCubit(this.networkManager) : super(const HomeState()) {
-    fetchMovi();
+    fetchMovie();
   }
+
 
   /// This is for network manager
   late final ServiceInterface networkManager;
 
   ///fetching to wanted movie from api
-  Future<void> fetchMovi({String? movieName}) async {
+  Future<void> fetchMovie({String? movieName}) async {
     _loadChange();
     final response = await networkManager.fetchMovieLists(
       movieName: movieName ?? 'blacklist',
     );
     if (response != null) {
-      print(response);
       emit(state.copyWith(movieModel: response));
     }
     _loadChange();
@@ -38,4 +38,6 @@ class HomeCubit extends Cubit<HomeState> {
   void changeSearch() {
     emit(state.copyWith(isSearchCliked: !state.isSearchCliked));
   }
+
+
 }

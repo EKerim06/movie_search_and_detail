@@ -1,12 +1,13 @@
+// ignore_for_file: lines_longer_than_80_chars, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../core/model/detail_model/movie_detail_model.dart';
-import '../../core/model/movie_model/movie_model.dart';
-import '../../utility/widget/center_circler.dart';
-import 'cubit/detailpage_cubit.dart';
-import 'detail_page_mixin.dart';
-import 'widget/body_widget.dart';
+import 'package:movie_search_and_detail/core/model/detail_model/movie_detail_model.dart';
+import 'package:movie_search_and_detail/core/model/movie_model/movie_model.dart';
+import 'package:movie_search_and_detail/feature/detail_page/cubit/detailpage_cubit.dart';
+import 'package:movie_search_and_detail/feature/detail_page/detail_page_mixin.dart';
+import 'package:movie_search_and_detail/feature/detail_page/widget/body_widget.dart';
+import 'package:movie_search_and_detail/utility/widget/center_circler.dart';
 
 ///Movie Detail Page.
 class DetailPage extends StatefulWidget {
@@ -15,7 +16,6 @@ class DetailPage extends StatefulWidget {
     required this.items,
     super.key,
   });
-
 
   ///Selected movie
   final Search items;
@@ -28,7 +28,7 @@ class _DetailPageState extends State<DetailPage> with DetailPageMixin {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => homeviewModel,
+      create: (context) => detailViewModel,
       child: Scaffold(
         appBar: AppBar(
           title: Text(widget.items.title ?? ''),
@@ -41,11 +41,13 @@ class _DetailPageState extends State<DetailPage> with DetailPageMixin {
                 return IconButton(
                   onPressed: () {
                     if (state) {
-                      homeviewModel.deleteData(
+                      detailViewModel.deleteData(
                         imdbId: widget.items.imdbID ?? '',
                       );
                     } else {
-                      homeviewModel.saveData(imdbId: widget.items.imdbID ?? '');
+                      detailViewModel.saveData(
+                        imdbId: widget.items.imdbID ?? '',
+                      );
                     }
                   },
                   icon: state

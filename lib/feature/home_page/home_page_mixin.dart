@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../core/service/network/network_service.dart';
-import '../../core/service/network/product_network.dart';
-import '../../core/service/network/service_interface.dart';
-import 'cubit/home_cubit.dart';
-import 'home_page.dart';
+import 'package:movie_search_and_detail/core/service/network/network_service.dart';
+import 'package:movie_search_and_detail/core/service/network/product_network.dart';
+import 'package:movie_search_and_detail/core/service/network/service_interface.dart';
+import 'package:movie_search_and_detail/feature/home_page/cubit/home_cubit.dart';
+import 'package:movie_search_and_detail/feature/home_page/home_page.dart';
 
 ///Home state mixin
 mixin HomePageMixin on State<HomePage> {
@@ -16,10 +16,11 @@ mixin HomePageMixin on State<HomePage> {
   ///Home cubit state managment
   late final HomeCubit homeViewModel;
 
+
   @override
   void initState() {
-    super.initState();
     networkManager = NetworkService(ProductNetwork());
     homeViewModel = HomeCubit(networkManager);
+    super.initState();
   }
 }

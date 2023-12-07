@@ -9,15 +9,14 @@ abstract class LocalStorageManager {
   late final SharedPreferences sharedPreferences;
 
   ///saving to selected movie
-  Future<void> saveIsMovie({required String imdbId});
+  Future<void> saveIsMovieId({required String imdbId});
 
   ///get to local storage fetch all movie
-  List<String>? fetchAllMovie();
+  List<String>? fetchAllMovieId();
 
   ///selected movie delete in local Storage
-  Future<void> deleteSelectedMovie({required String imdbId});
-
+  Future<void> deleteSelectedMovieId({required String imdbId});
 
   ///Removing all local storage items.
-  Future<bool> removeAll();
+  Future<bool> removeAllMovieId();
 }

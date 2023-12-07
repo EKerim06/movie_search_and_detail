@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:equatable/equatable.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:vexana/vexana.dart';
 
@@ -8,9 +9,6 @@ part 'movie_model.g.dart';
 
 @JsonSerializable()
 class MovieModel extends INetworkModel<MovieModel> with EquatableMixin {
-  List<Search>? search;
-  String? totalResults;
-  String? response;
 
   MovieModel({
     this.search,
@@ -18,6 +16,9 @@ class MovieModel extends INetworkModel<MovieModel> with EquatableMixin {
     this.response,
   });
 
+  List<Search>? search;
+  String? totalResults;
+  String? response;
 
   @override
   Map<String, dynamic> toJson() => _$MovieModelToJson(this);
@@ -44,13 +45,8 @@ class MovieModel extends INetworkModel<MovieModel> with EquatableMixin {
 }
 
 @JsonSerializable()
+@HiveType(typeId: 0)
 class Search with EquatableMixin {
-  String? title;
-  String? year;
-  String? imdbID;
-  String? type;
-  String? poster;
-
   Search({
     this.title,
     this.year,
@@ -60,6 +56,21 @@ class Search with EquatableMixin {
   });
 
   factory Search.fromJson(Map<String, dynamic> json) => _$SearchFromJson(json);
+
+  @HiveField(0)
+  String? title;
+
+  @HiveField(1)
+  String? year;
+
+  @HiveField(2)
+  String? imdbID;
+
+  @HiveField(3)
+  String? type;
+
+  @HiveField(4)
+  String? poster;
 
   Map<String, dynamic> toJson() => _$SearchToJson(this);
 

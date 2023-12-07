@@ -1,6 +1,8 @@
-
 ///LocalStorage Service enums Keys
 enum LocalStorageServiceKeys {
   ///Local Db name
-  movies;
+  moviesId,
+
+  ///local storage hive key
+  movie;
 }

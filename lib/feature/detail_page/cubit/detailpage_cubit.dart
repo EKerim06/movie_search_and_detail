@@ -1,11 +1,14 @@
+// ignore_for_file: omit_local_variable_types, lines_longer_than_80_chars
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_search_and_detail/core/model/detail_model/movie_detail_model.dart';
+import 'package:movie_search_and_detail/core/model/movie_model/movie_model.dart';
+import 'package:movie_search_and_detail/core/service/hive/hive_manager.dart';
+import 'package:movie_search_and_detail/core/service/network/service_interface.dart';
+import 'package:movie_search_and_detail/core/service/shared_preferences/local_storage_manager.dart';
+import 'package:movie_search_and_detail/core/service/shared_preferences/local_storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import '../../../core/model/detail_model/movie_detail_model.dart';
-import '../../../core/service/local_storage/local_storage_manager.dart';
-import '../../../core/service/local_storage/local_storage_service.dart';
-import '../../../core/service/network/service_interface.dart';
 
 part 'detailpage_state.dart';
 
@@ -15,12 +18,20 @@ class DetailPageCubit extends Cubit<DetailPageState> {
   DetailPageCubit(
     this.networkSerice, {
     required String imdbId,
+    required this.hiveService,
+    required this.selectedMovie,
   }) : super(const DetailPageState()) {
     _init();
     fetchMovieDetail(imdbId: imdbId);
   }
 
   late final LocalStorageManager _manager;
+
+  ///selectedMovie
+  late final Search selectedMovie;
+
+  ///hive cache manager.
+  late final HiveManager hiveService;
 
   Future<void> _init() async {
     final SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -46,7 +57,7 @@ class DetailPageCubit extends Cubit<DetailPageState> {
 
   ///local storage saved movie is fetch
   void isItFavorite({MovieDetailModel? model}) {
-    final readingData = _manager.fetchAllMovie();
+    final readingData = _manager.fetchAllMovieId();
 
     final isItFavorite = readingData?.contains(model?.imdbID);
 
@@ -55,19 +66,21 @@ class DetailPageCubit extends Cubit<DetailPageState> {
 
   ///save data
   void saveData({required String imdbId}) {
-    _manager.saveIsMovie(imdbId: imdbId);
+    _manager.saveIsMovieId(imdbId: imdbId);
+    hiveService.saveMovie(movie: selectedMovie);
     emit(state.copyWith(isFavorites: true));
   }
 
   ///deleting data
   void deleteData({required String imdbId}) {
-    _manager.deleteSelectedMovie(imdbId: imdbId);
+    _manager.deleteSelectedMovieId(imdbId: imdbId);
+    hiveService.removeSelectedMovie(movie: selectedMovie);
     emit(state.copyWith(isFavorites: false));
   }
 
+  ///local storage is wrong variable is save whereas run
   Future<bool> removeAll() async {
-    final response = await _manager.removeAll();
-    print(response);
+    final response = await _manager.removeAllMovieId();
     return response;
   }
 }

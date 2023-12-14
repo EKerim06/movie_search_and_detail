@@ -1,5 +1,6 @@
 import 'package:movie_search_and_detail/core/model/detail_model/movie_detail_model.dart';
 import 'package:movie_search_and_detail/core/model/movie_model/movie_model.dart';
+import 'package:movie_search_and_detail/core/model/purshare_model/purshare_model.dart';
 import 'package:vexana/vexana.dart';
 
 /// ServiceInterface class for network operations abstract layer
@@ -17,4 +18,9 @@ abstract class ServiceInterface {
 
   ///fetching movie detail function.
   Future<MovieDetailModel?> fetchMovieDetail({required String imdbId});
+
+  ///is seleceted Movie fetching purhase link fetch
+  Future<PurshareModel?> selectedMoviePurshareFetch({
+    required String movieName,
+  });
 }

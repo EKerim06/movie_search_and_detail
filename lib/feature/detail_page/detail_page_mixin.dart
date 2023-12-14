@@ -26,9 +26,8 @@ mixin DetailPageMixin on State<DetailPage> {
     networkService = NetworkService(ProductNetwork());
     detailViewModel = DetailPageCubit(
       selectedMovie: widget.items,
-      networkService,
       hiveService: service,
-      imdbId: widget.items.imdbID ?? 'tt0455275',
+      networkService,
     );
     super.initState();
   }

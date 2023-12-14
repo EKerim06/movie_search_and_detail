@@ -20,4 +20,11 @@ void main() {
     final response = await networkManager.fetchMovieDetail(imdbId: 'tt4154796');
     expect(response, isNotNull);
   });
+
+  test('test purshare Methot', () async {
+    final response = await networkManager.selectedMoviePurshareFetch(
+      movieName: 'blacklist',
+    );
+    expect(response, isNotNull);
+  });
 }

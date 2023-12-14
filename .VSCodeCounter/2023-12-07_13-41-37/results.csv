@@ -1,0 +1,36 @@
+"filename", "language", "Dart", "comment", "blank", "total"
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\constants\enum\enum_url.dart", "Dart", 11, 4, 2, 17
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\constants\enum\local_storage_service_keys.dart", "Dart", 4, 3, 2, 9
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\core\model\detail_model\movie_detail_model.dart", "Dart", 173, 1, 13, 187
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\core\model\detail_model\movie_detail_model.g.dart", "Dart", 67, 4, 7, 78
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\core\model\movie_model\movie_model.dart", "Dart", 75, 1, 20, 96
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\core\model\movie_model\movie_model.g.dart", "Dart", 62, 8, 14, 84
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\core\service\hive\hive_manager.dart", "Dart", 6, 4, 4, 14
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\core\service\hive\hive_service.dart", "Dart", 38, 3, 12, 53
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\core\service\network\network_service.dart", "Dart", 27, 3, 6, 36
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\core\service\network\product_network.dart", "Dart", 16, 2, 2, 20
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\core\service\network\service_interface.dart", "Dart", 9, 6, 6, 21
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\core\service\shared_preferences\local_storage_manager.dart", "Dart", 9, 7, 7, 23
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\core\service\shared_preferences\local_storage_service.dart", "Dart", 41, 2, 6, 49
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\detail_page\cubit\detailpage_cubit.dart", "Dart", 58, 12, 17, 87
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\detail_page\cubit\detailpage_state.dart", "Dart", 28, 6, 7, 41
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\detail_page\detail_page.dart", "Dart", 74, 4, 6, 84
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\detail_page\detail_page_mixin.dart", "Dart", 25, 28, 12, 65
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\detail_page\widget\body_widget.dart", "Dart", 41, 3, 5, 49
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\favorites_page\cubit\favori_page_cubit.dart", "Dart", 15, 4, 6, 25
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\favorites_page\cubit\favori_page_state.dart", "Dart", 14, 4, 5, 23
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\favorites_page\favorite_page.dart", "Dart", 52, 7, 5, 64
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\favorites_page\favorite_page_mixin.dart", "Dart", 15, 3, 4, 22
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\home_page\cubit\home_cubit.dart", "Dart", 27, 5, 12, 44
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\home_page\cubit\home_state.dart", "Dart", 28, 7, 7, 42
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\home_page\home_page.dart", "Dart", 93, 4, 4, 101
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\feature\home_page\home_page_mixin.dart", "Dart", 16, 4, 7, 27
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\main.dart", "Dart", 23, 2, 6, 31
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\utility\bottom_bar\bottom_bar.dart", "Dart", 47, 2, 4, 53
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\utility\bottom_bar\bottom_bar_mixin.dart", "Dart", 15, 3, 4, 22
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\utility\bottom_bar\cubit\bottombar_cubit.dart", "Dart", 9, 3, 4, 16
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\utility\bottom_bar\cubit\bottombar_state.dart", "Dart", 14, 1, 5, 20
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\utility\static_classes\headers_keys.dart", "Dart", 4, 4, 3, 11
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\utility\widget\center_circler.dart", "Dart", 10, 2, 3, 15
+"c:\kodlar ve egitimler\flutter_projeler\movie_search_and_detail\lib\utility\widget\custom_container.dart", "Dart", 22, 5, 4, 31
+"Total", "-", 1168, 161, 231, 1560

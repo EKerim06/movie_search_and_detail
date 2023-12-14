@@ -4,6 +4,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_search_and_detail/core/model/detail_model/movie_detail_model.dart';
 import 'package:movie_search_and_detail/core/model/movie_model/movie_model.dart';
+import 'package:movie_search_and_detail/core/model/purshare_model/purshare_model.dart';
 import 'package:movie_search_and_detail/core/service/hive/hive_manager.dart';
 import 'package:movie_search_and_detail/core/service/network/service_interface.dart';
 import 'package:movie_search_and_detail/core/service/shared_preferences/local_storage_manager.dart';
@@ -17,12 +18,14 @@ class DetailPageCubit extends Cubit<DetailPageState> {
   ///Detail Page Cubit constructor.
   DetailPageCubit(
     this.networkSerice, {
-    required String imdbId,
     required this.hiveService,
     required this.selectedMovie,
   }) : super(const DetailPageState()) {
     _init();
-    fetchMovieDetail(imdbId: imdbId);
+    fetchMovieDetail(
+      imdbId: selectedMovie.imdbID ?? '',
+      movieName: selectedMovie.title ?? '',
+    );
   }
 
   late final LocalStorageManager _manager;
@@ -42,10 +45,11 @@ class DetailPageCubit extends Cubit<DetailPageState> {
   final ServiceInterface networkSerice;
 
   ///fetching movie detail.
-  Future<void> fetchMovieDetail({required String imdbId}) async {
+  Future<void> fetchMovieDetail({required String imdbId, required String movieName}) async {
     _loadChange();
     final response = await networkSerice.fetchMovieDetail(imdbId: imdbId);
     isItFavorite(model: response);
+    await _fetchPurshare(movieName: movieName);
     // await removeAll();
     emit(state.copyWith(detailingMovie: response));
     _loadChange();
@@ -62,6 +66,11 @@ class DetailPageCubit extends Cubit<DetailPageState> {
     final isItFavorite = readingData?.contains(model?.imdbID);
 
     emit(state.copyWith(isFavorites: isItFavorite));
+  }
+
+  Future<void> _fetchPurshare({required String movieName}) async {
+    final response = await networkSerice.selectedMoviePurshareFetch(movieName: movieName);
+    emit(state.copyWith(selectedMoviePurshare: response));
   }
 
   ///save data

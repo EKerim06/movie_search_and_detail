@@ -11,6 +11,7 @@ void main() {
     ..registerAdapter<Search>(SearchAdapter());
 
   runApp(const MyApp());
+
 }
 
 ///My App

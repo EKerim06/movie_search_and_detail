@@ -1,8 +1,7 @@
-// ignore_for_file: lines_longer_than_80_chars, library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_search_and_detail/core/model/detail_model/movie_detail_model.dart';
 import 'package:movie_search_and_detail/core/model/movie_model/movie_model.dart';
 import 'package:movie_search_and_detail/feature/detail_page/cubit/detailpage_cubit.dart';
 import 'package:movie_search_and_detail/feature/detail_page/detail_page_mixin.dart';
@@ -65,13 +64,12 @@ class _DetailPageState extends State<DetailPage> with DetailPageMixin {
           builder: (context, state) {
             return state
                 ? const CenterCircler()
-                : BlocSelector<DetailPageCubit, DetailPageState, MovieDetailModel?>(
-                    selector: (state) {
-                      return state.detailingMovie;
-                    },
+                : BlocConsumer<DetailPageCubit, DetailPageState>(
+                    listener: (context, state) {},
                     builder: (context, state) {
                       return BodyWidget(
-                        movieDetailModel: state!,
+                        movieDetailModel: state.detailingMovie!,
+                        purshareModel: state.selectedMoviePurshare!,
                       );
                     },
                   );
